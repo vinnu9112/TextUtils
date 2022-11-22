@@ -39,6 +39,7 @@ export default function TextForm(props) {
     text.select();
     // text.setSelectionRange(0,9999)
     navigator.clipboard.writeText(text.value);
+    document.getSelection().removeAllRanges();
     props.showAlert('Copied to the Clipboard!', 'success');
   };
   
@@ -63,30 +64,30 @@ export default function TextForm(props) {
   return (
     <>
       <div className={`container my-2 text-${props.mode ==='dark'?'light':'dark'}`}>
-        <h1>{props.heading}</h1>
+        <h1 className="mb-4">{props.heading}</h1>
         <div className="mb-3">
           <textarea
             className="form-control"
-            style={{backgroundColor: props.mode ==='dark'?'grey':'white'}}
+            style={{color: props.mode ==='dark'?'white':'black' ,backgroundColor: props.mode ==='dark'?'#13466e':'white'}}
             value={text}
             onChange={handleOnChange}
             id="myBox"
             rows="8"
           ></textarea>
         </div>
-        <button className="btn btn-primary mx-2" onClick={handleUpClick}>
+        <button disabled={text.length===0} className="btn btn-primary my-2 mx-2" onClick={handleUpClick}>
           Convert to UpperCase
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleLoClick}>
+        <button disabled={text.length===0} className="btn btn-primary my-2 mx-2" onClick={handleLoClick}>
           Convert to LowerCase
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleCopy}>
+        <button disabled={text.length===0} className="btn btn-primary my-2 mx-2" onClick={handleCopy}>
           Copy Text
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleExtraSpaces}>
+        <button disabled={text.length===0} className="btn btn-primary my-2 mx-2" onClick={handleExtraSpaces}>
           Clear Extra Spaces
         </button>
-        <button className="btn btn-primary mx-2" onClick={clearClick} >
+        <button disabled={text.length===0} className="btn btn-primary my-2 mx-2" onClick={clearClick} >
           Clear
         </button>
       </div>
@@ -102,7 +103,7 @@ export default function TextForm(props) {
       </div>
       <div className={`container my-2 text-${props.mode ==='dark'?'light':'dark'}`}>
         <h2>Preview</h2>
-        <p>{text.length>0?text:'Enter Something to Preview It Here'}</p>
+        <p>{text.length>0?text:'Nothing to Preview!'}</p>
       </div>
     </>
   );

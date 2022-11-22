@@ -8,6 +8,9 @@ export default function Navbar(props) {
       className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
     >
       <div className="container-fluid">
+        {/* <a className="navbar-brand" href="#">
+          {props.title}
+        </a> */}
         <Link className="navbar-brand" to="/">
           {props.title}
         </Link>
@@ -26,7 +29,10 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-a active mx-2" aria-current="page" to="/">
+              {/* <a className="nav-a active mx-2" aria-current="page" href="#">
+                Home
+            </a> */}
+            <Link className="nav-a active" tag="a" to="/">
                 Home
             </Link>
             </li>
@@ -35,8 +41,22 @@ export default function Navbar(props) {
               <Link className="nav-a mx-2" to="/about">
                 {props.aboutText}
               </Link>
+            {/* <Link className="nav-a" tag="a" to="/about">
+                {props.aboutText}
+            </Link> */}
             </li>
           </ul>
+          {/* <form className="d-flex" role="search">
+            <input
+              className="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button className="btn btn-outline-primary" type="submit">
+              Search
+            </button>
+          </form> */}
           <div className="form-check form-switch">
             <input
               className="form-check-input"
