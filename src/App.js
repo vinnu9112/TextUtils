@@ -6,7 +6,6 @@ import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
-let name = "Vinayak";
 function App() {
   const [mode, setMode] = useState("light");
   const [alert, setAlert] = useState(null);

@@ -32,7 +32,7 @@ export default function Navbar(props) {
               {/* <a className="nav-a active mx-2" aria-current="page" href="#">
                 Home
             </a> */}
-            <Link className="nav-a active" tag="a" to="/">
+            <Link className="nav-a " tag="a" to="/">
                 Home
             </Link>
             </li>

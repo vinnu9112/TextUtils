@@ -34,12 +34,12 @@ export default function TextForm(props) {
   };
   
   const handleCopy = () => {
-    console.log("I am copy");
-    var text = document.getElementById("myBox");
-    text.select();
+    // console.log("I am copy");
+    // var text = document.getElementById("myBox");
+    // text.select();
     // text.setSelectionRange(0,9999)
-    navigator.clipboard.writeText(text.value);
-    document.getSelection().removeAllRanges();
+    navigator.clipboard.writeText(text);
+    // document.getSelection().removeAllRanges();
     props.showAlert('Copied to the Clipboard!', 'success');
   };
   
@@ -94,7 +94,7 @@ export default function TextForm(props) {
       <div className={`container my-2 text-${props.mode ==='dark'?'light':'dark'} `}>
         <h2>Text Summary</h2>
         <p>
-          {countWords(text)} words and {countLetters(text)} letters
+          {text.split(/\s+/).filter((element)=>{return element.length !==0}).length} words and {countLetters(text)} letters
         </p>
         <p>
           Average Time Taken to Read This is {0.008 * countWords(text)}{" "}
