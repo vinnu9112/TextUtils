@@ -35,32 +35,27 @@ function App() {
   return (
     <>
       {/* <Navbar/> */}
-      <Router>
+      {/* <Router> */}
       <Navbar
         title="TextUtils"
         aboutText="About Us"
         mode={mode}
         toggleMode={toggleMode}
-      />
+        />
       <Alert alert={alert} />
         <div className="container">
-          <Routes>
-            <Route exact path="/about" element={<About mode={mode}/>}></Route>
+          {/* <Routes> */}
+            {/* <Route exact path="/about" element={<About mode={mode}/>}></Route> */}
 
-            <Route
-              exact
-              path="/"
-              element={
-                <TextForm
+          <TextForm
                   heading="Text Utils - Word Counter, Character Counter, Remove Extra Spaces"
                   mode={mode}
                   showAlert={showAlert}
                 />
-              }
-            ></Route>
-          </Routes>
+              
+          {/* </Routes> */}
         </div>
-      </Router>
+      {/* </Router> */}
       {/* <About/> */}
     </>
   );
